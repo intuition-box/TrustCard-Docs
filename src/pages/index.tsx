@@ -91,8 +91,8 @@ function HomepageHeader() {
           <Link className={clsx("button button--lg", styles.btnPrimary)} to="/docs/tutorial/overview">
             How it works
           </Link>
-          <Link className={clsx("button button--lg", styles.btnSecondary)} to="/docs/tutorial/invitations">
-            Get an invitation
+          <Link className={clsx("button button--lg", styles.btnSecondary)} to="https://trustcard.box/">
+            Vote for the firsts holders
           </Link>
         </div>
       </div>
@@ -227,11 +227,18 @@ export default function Home(): ReactNode {
 
               <div className="col col--6">
                 <div className={styles.viewer}>
-                  <div className={styles.viewerCard}>
-                    <span className={styles.viewerLabel}>3D Card Viewer (embed)</span>
+                  <div className={styles.viewerFrame}>
+                    <span className={styles.viewerBadge}>Card preview</span>
+                    <img
+                      src="/img/card-placeholder.png"
+                      alt="Static preview of the Trust Card"
+                      className={styles.viewerImage}
+                    />
                   </div>
                   <div className={styles.viewerCaption}>
-                    Wave frame • rarity glow • NFT/Physical
+                    <Link className={styles.viewerSimBtn} to="https://trust-card-generator.intuition.box">
+                      See the simulator
+                    </Link>
                   </div>
                 </div>
               </div>

@@ -20,13 +20,6 @@
 }
 @media screen and (max-width: 996px) { .heroBanner { padding: 2rem 1rem; } }
 
-.announce { display:flex; gap:10px; align-items:center; justify-content:center; margin-bottom:10px; }
-.pill {
-  display:inline-block; font-size:12px; padding:4px 10px; border-radius:999px;
-  background: rgba(255,255,255,.06); border:1px solid var(--borderSoft); color: var(--inkDim);
-}
-.announceText { color: var(--inkDim); }
-
 .heroExplainer { max-width: 920px; margin: 12px auto 0; color: var(--inkDim); }
 
 .buttons { margin-top: 1.2rem; display:flex; justify-content:center; gap:12px; flex-wrap:wrap; }
@@ -42,9 +35,6 @@
   background: transparent;
   box-shadow: none;
 }
-
-.heroHint { margin-top: 8px; color: var(--inkSub); }
-.heroHint a { color: var(--accent); }
 
 /* Main section */
 .mainSection { background: var(--bg); color: var(--ink); padding: 64px 0 72px; }
@@ -156,11 +146,42 @@
 
 /* Viewer */
 .viewer { display:grid; justify-items:center; }
-.viewerCard { width:260px; aspect-ratio:3/4; border-radius:18px; border:1px solid var(--border);
-  background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
-  display:flex; align-items:center; justify-content:center; }
-.viewerLabel { color:var(--inkSub); font-size:13px; }
+.viewerFrame {
+  position: relative;
+  width: 280px;
+  aspect-ratio: 367/570;
+  border-radius: 18px;
+  border: 1px solid var(--border);
+  background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
+  overflow: hidden;
+}
+.viewerBadge {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  font-size: 11px;
+  padding: 4px 8px;
+  border-radius: 999px;
+  background: rgba(0,0,0,.35);
+  border: 1px solid var(--borderSoft);
+  color: var(--inkDim);
+  backdrop-filter: blur(6px);
+}
+.viewerImage {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  background: radial-gradient(circle at 20% 20%, rgba(255,216,122,.1), transparent 46%);
+}
 .viewerCaption { color:var(--inkSub); font-size:12px; margin-top:8px; }
+.viewerSimBtn {
+  display: inline-block;
+  color: var(--accent) !important;
+  font-weight: 600;
+  text-decoration: none;
+}
+.viewerSimBtn:hover { color: var(--accent) !important; text-decoration: underline; }
 
 /* Bento grid & cards */
 .bentoGrid { display:grid; gap:16px; grid-template-columns:repeat(1,1fr); margin-top:48px; }
@@ -185,8 +206,6 @@
 .subTitle{margin:48px 0 10px 0;}
 .embedBox{border-radius:16px; border:1px solid var(--border); background:var(--panel); padding:8px;}
 .embedPlaceholder{display:grid; place-items:center; width:100%; min-height:280px; color:var(--inkSub); border:1px dashed rgba(255,255,255,.18); border-radius:12px;}
-.embedIframe{width:100%; height:520px; border:0; border-radius:12px;}
-
 /* Mobile */
 @media (max-width: 767px) {
   .heroBanner { padding: 2rem 1rem; }
@@ -197,7 +216,7 @@
 
   .flowGrid { grid-template-columns: 1fr; }
   .viewer { display: grid; grid-template-columns: 1fr; row-gap: 12px; justify-items: center; }
-  .viewerCard { width: min(86vw, 320px); margin-top: 20px; }
+  .viewerFrame { width: min(86vw, 320px); margin-top: 20px; }
   .viewerCaption { text-align: center; }
 
   .bentoGrid { grid-template-columns: 1fr; }
@@ -207,7 +226,6 @@
   .waveList { gap: 8px; }
   .waveItem { padding: 6px 10px; font-size: 13px; }
 
-  .embedIframe { height: 360px; }
   .embedPlaceholder { min-height: 260px; }
 
   .tsBlock { margin: 40px 0 24px; padding: 24px; }
